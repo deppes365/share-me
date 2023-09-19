@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$indianRed: #B4656F;
+$cerulean: #0C7489;
+$icterine: #F0F465;
+$aquamarine: #00F5D4;
+$tomato: #F15946;
+
+.hamburger {
+    position: relative;
+    width: 2.25rem;
+    height: 2.25rem;
+    z-index: 20;
+
+    .topLine, .middleLine, .bottomLine {
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        left: 50%;
+        border-radius: 3px;
+        transition: 0.3s ease;
+    }
+
+    .topLine {
+        top: 25%;
+        transform: translate(-50%, -50%);
+    }
+
+    .middleLine {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .bottomLine {
+        top: 75%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.active {
+        .topLine {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .middleLine {
+            opacity: 0;
+        }
+
+        .bottomLine {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
