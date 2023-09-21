@@ -9,21 +9,21 @@ function Navbar() {
 		<div className="w-full flex justify-center items-center">
 			<div className="w-full max-w-[1600px] px-4 flex justify-between items-center">
 				<NavLink to="/" className="text-xl">
-					<img src={ShareMeLogo} alt="Share Me Logo" className='h-[80px]' />
+					<img src={ShareMeLogo} alt="Share Me Logo" className="h-[60px]" />
 				</NavLink>
 
 				<div className="flex items-center order-2">
 					<NavLink
 						to="/login"
-						className="bg-aquamarine py-1 px-4 rounded-[15px] text-slate-50 font-bold tracking-[0.05em] duration-200 hover:shadow-md"
+						className="bg-aquamarine py-1 px-2 rounded-[15px] text-slate-50 font-bold tracking-[0.05em] duration-200 hover:shadow-md"
 					>
 						Login
 					</NavLink>
-					<NavLink to="/register" className="ml-4">
+					<NavLink to="/register" className="ml-2">
 						Register
 					</NavLink>
 					<div
-						className={`hamburger ml-8 [&>div]:bg-aquamarine flex md:hidden cursor-pointer 
+						className={`hamburger ml-4 [&>div]:bg-aquamarine flex md:hidden cursor-pointer 
                         ${menuActive ? 'active' : ''}`}
 						onClick={() => setMenuActive(p => !p)}
 					>
