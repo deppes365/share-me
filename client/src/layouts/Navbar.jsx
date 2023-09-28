@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearState } from "../Redux/user/userSlice";
 import ShareMeLogo from "../assets/images/logos/share-me-logo.png";
@@ -9,8 +9,10 @@ import { auth } from "../../firebase.config";
 
 function Navbar() {
   const { loggedIn } = useAuthStatus();
+  const [showNav, setShowNav] = useState(true);
   const [menuActive, setMenuActive] = useState(false);
   const { username } = useSelector((state) => state.user);
+  const location = useLocation()
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,8 +25,16 @@ function Navbar() {
     } catch (e) {}
   };
 
+  useEffect(() => {
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      return setShowNav(false);
+    }
+
+    !showNav && setShowNav(true);
+  }, [location.pathname]);
+
   return (
-    <div className="w-full h-[4rem] bg-white flex justify-center items-center fixed top-0 left-0 z-20">
+    <div className={`${showNav ? 'flex' : 'hidden'} w-full h-[4rem] bg-whitejustify-center items-center fixed top-0 left-0 z-20`}>
       <div className="w-full max-w-[1600px] px-4 md:px-8 flex justify-between items-center">
         <NavLink to="/" className="text-xl">
           <img src={ShareMeLogo} alt="Share Me Logo" className="h-[60px]" />
