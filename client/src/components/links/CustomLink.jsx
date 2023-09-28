@@ -41,7 +41,7 @@ function CustomLink({ data }) {
 				paddingBottom: '0.5rem',
 			},
 			hover: {
-				backgroundColor: 'rgba(0, 0, 0, 0.5)',
+				backgroundColor: 'rgba(255, 255, 255, 0.5)',
 				backdropFilter: 'blur(2px)',
 				paddingTop: '0.5rem',
 				paddingBottom: '0.5rem',
@@ -63,7 +63,7 @@ function CustomLink({ data }) {
 
 	return (
 		<Link
-			className={`flex justify-center w-full py-1 px-8 mb-8 ${
+			className={`flex justify-center w-full py-1 px-8 mb-6 ${
 				rounded ? 'rounded-[30px]' : ''
 			} duration-200`}
 			style={hoverActive ? linkstyles[type].hover : linkstyles[type].base}
